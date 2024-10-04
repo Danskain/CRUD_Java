@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos/cabecero::cabecero-seccion(titulo='Editar')}">
+</head>
+<body>
+<!--Div es del menu de navegacion-->
+<div th:replace="~{fragmentos/navegacion::navegacion-seccion}"/>
+
+<div class="container">
+  <div class="container text-center" style="margin:30px">
+    <h3>Editar Contacto</h3>
+  </div>
+  <div class="container">
+    <form action="/editar" th:object="${pruebasEstudiante}" method="post">
+      <input type="hidden" th:field="*{id}"/>
+      <div class="mb-3">
+        <label for="eid" class="form-label">Id Estudiante</label>
+        <input type="text" class="form-control"
+               id="eid" name="eid" required="true" th:field="*{eid}">
+      </div>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control"
+               id="nombre" name="nombre" required="true" th:field="*{nombre}">
+      </div>
+      <div class="mb-3">
+        <label for="especialidad" class="form-label">Especialidad</label>
+        <input type="text" class="form-control" id="especialidad"
+               name="especialidad" th:field="*{especialidad}">
+      </div>
+      <div class="mb-3">
+        <label for="grado" class="form-label">Grado</label>
+        <input type="text" class="form-control" id="grado"
+               name="grado" th:field="*{grado}">
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-warning btn-sm me-3">Editar</button>
+        <a href="/" class="btn btn-danger btn-sm">Regresar</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div th:replace="~{fragmentos/pie-pagina::pie-pagina-seccion}"/>
+</body>
+</html>
